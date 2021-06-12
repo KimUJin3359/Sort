@@ -6,7 +6,7 @@
 /*   By: woojikim <woojikim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 20:19:10 by woojikim          #+#    #+#             */
-/*   Updated: 2021/06/12 20:38:37 by woojikim         ###   ########.fr       */
+/*   Updated: 2021/06/12 22:40:23 by woojikim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,24 +40,23 @@ void	get_input(t_node **a, int ac, char *av[])
 {
 	char	**data;
 	int		i;
+	int		idx;
 
 	data = NULL;
-	if (ac == 2)
+	i = 1;
+	while (i < ac)
 	{
-		i = 0;
-		data = ft_split(av[1], ' ');
-		while (data[i])
-			push_back(a, ft_atoi(data[i++]));
-		i = 0;
-		while (data[i])
-			free(data[i++]);
+		if (!ft_strlen(av[i]))
+			print_error();
+		idx = 0;
+		data = ft_split(av[i++], ' ');
+		while (data[idx])
+			push_back(a, ft_atoi(data[idx++]));
+		idx = 0;
+		while (data[idx])
+			free(data[idx++]);
 		free(data);
-	}
-	else
-	{
-		i = 1;
-		while (i < ac)
-			push_back(a, ft_atoi(av[i++]));
+		data = NULL;
 	}
 }
 

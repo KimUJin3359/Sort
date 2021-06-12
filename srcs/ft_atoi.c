@@ -6,7 +6,7 @@
 /*   By: woojikim <woojikim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 20:54:52 by woojikim          #+#    #+#             */
-/*   Updated: 2021/06/12 20:55:12 by woojikim         ###   ########.fr       */
+/*   Updated: 2021/06/12 22:39:40 by woojikim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,7 @@ int		ft_atoi(const char *str)
 	while (str[idx] >= '0' && str[idx] <= '9')
 		res = res * 10 + (str[idx++] - '0');
 	res *= sign;
-	if (!ft_strlen(str) || str[idx] != '\0' ||
-			res > 2147483647 || res < -2147483648)
+	if (str[idx] != '\0' || res > 2147483647 || res < -2147483648)
 		print_error();
 	return ((int)res);
 }
