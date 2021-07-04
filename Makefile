@@ -24,8 +24,8 @@ all : $(NAME)
 $(NAME) : $(OBJS)
 	$(CC) -o $(NAME) $(OBJS)
 
-clean :
-	rm -rf ./srcs/*.o
+clean : $(OBJS)
+	rm -rf $(OBJS)
 
 fclean : clean
 	rm -rf $(NAME)
