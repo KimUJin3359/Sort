@@ -2,34 +2,33 @@
 
 void	solve_3_only(t_node **list, int max, int min)
 {
-	if (max == 1 && min == 2 && shift_down(list) && swap(list))
-		write(1, "rra\nsa\n", 7);
-	else if (max == 2 && min == 3 && swap(list))
-		write(1, "sa\n", 3);
-	else if (max == 2 && min == 1 && shift_down(list))
-		write(1, "sa\n", 3);
-	else if (max == 3 && min == 2 && shift_up(list))
+	if (max == 1 && min == 2 && shift_up(list))
 		write(1, "ra\n", 3);
-	else if (max == 3 && min == 1 && shift_up(list) && swap(list))
-		write(1, "ra\nsa\n", 6);
+	else if (max == 1 && min == 3 && swap(list) && shift_down(list))
+		write(1, "sa\nrra\n", 7);
+	else if (max == 2 && min == 3 && shift_down(list))
+		write(1, "rra\n", 4);
+	else if (max == 2 && min == 1 && swap(list) && shift_up(list))
+		write(1, "sa\nra\n", 6);
+	else if (max == 3 && min == 2 && swap(list))
+		write(1, "sa\n", 3);
 }
 
 void	solve_3(t_node **list, int max, int min)
 {
 	if (max == 1 && min == 2 &&
-			shift_up(list) && swap(list) && shift_down(list))
-		write(1, "ra\nsa\nrra\n", 10);
-	else if (max == 2 && min == 3 && swap(list))
-		write(1, "sa\n", 3);
-	else if (max == 2 && min == 1 &&
-			shift_up(list) && swap(list) && shift_down(list) && swap(list))
-		write(1, "ra\nsa\nrra\nsa\n", 13);
-	else if (max == 3 && min == 2 &&
 			swap(list) && shift_up(list) && swap(list) && shift_down(list))
 		write(1, "sa\nra\nsa\nrra\n", 13);
-	else if (max == 3 && min == 1 && swap(list) &&
-			shift_up(list) && swap(list) && shift_down(list) && swap(list))
+	else if (max == 1 && min == 3 &&
+			swap(list) && shift_up(list) && swap(list) && shift_down(list) && swap(list))
 		write(1, "sa\nra\nsa\nrra\nsa\n", 16);
+	else if (max == 2 && min == 3 && shift_up(list) && swap(list) && shift_down(list) && swap(list))
+		write(1, "ra\nsa\nrra\nsa\n", 13);
+	else if (max == 2 && min == 1 &&
+			shift_up(list) && swap(list) && shift_down(list))
+		write(1, "ra\nsa\nrra\n", 10);
+	else if (max == 3 && min == 2 && swap(list))
+		write(1, "sa\n", 3);
 }
 
 int		solve_less_than_3(t_node **list, int num)
@@ -46,8 +45,8 @@ int		solve_less_than_3(t_node **list, int num)
 	}
 	else if (num == 3)
 	{
-		max = get_min(*list);
-		min = get_max(*list);
+		max = get_max(*list);
+		min = get_min(*list);
 		if (len <= 3)
 			solve_3_only(list, max, min);
 		else
