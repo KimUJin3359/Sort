@@ -55,3 +55,6 @@ rrr : rra and rrb at the same time
 - `Merge Sort`
   - always this algorithm behavior in n\*logn
   - but this needs a lot of additional storage
+
+### To be fixed
+- when ' ' is inserted
